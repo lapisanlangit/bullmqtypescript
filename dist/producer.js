@@ -16,8 +16,14 @@ const myQueue = new bullmq_1.Queue("my-queue", { connection });
 // Add jobs to the queue
 async function addJobs() {
     await myQueue.add("myJobName", { foo: "bar" });
-    await myQueue.add("myJobName", { qux: "baz" });
     console.log("Jobs added to queue");
+}
+const myQueue2 = new bullmq_1.Queue("my-queue2", { connection });
+// Add jobs to the queue
+async function addJobs2() {
+    await myQueue2.add("myJobName2", { qux: "baz" });
+    console.log("Jobs2 added to queue");
 }
 // Run the producer
 addJobs().catch(console.error);
+addJobs2().catch(console.error);
